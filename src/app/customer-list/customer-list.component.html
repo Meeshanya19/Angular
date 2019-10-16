@@ -40,9 +40,8 @@
         <td>{{customer.customerState}}</td>
         <td>{{customer.customerAddress}}</td>
         <td><button (click)="deleteCustomer(customer.customerId)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>
-          <button (click)="getSomeCustomer(customer.customerId)" class='btn btn-info'
-                  data-toggle="modal" data-target="#myModal">Update</button>
-          <button (click)="adRecord(customer.customerId)" class='btn btn-info'>Details</button>
+          <button (click)="updateCustomer(customer.customerId)" class='btn btn-info'>Update</button>
+          <button (click)="customerDetails(customer.customerId)" class='btn btn-info'>Details</button>
         </td>
       </tr>
       </tbody><br>

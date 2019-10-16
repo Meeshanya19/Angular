@@ -102,29 +102,17 @@ export class CustomerListComponent implements OnInit {
         },
         error => console.log(error));
   }
-  updateCustomer(updCstm) {
-    this.customer = new Customer();
-    this.customer.customerFirstName = this.CustomerName.value ;
-    this.customer.customerLastName = this.CustomerLastName.value;
-    this.customer.customerDateOfBirth = this.CustomerDateOfBirth.value;
-    this.customer.customerSex = this.CustomerSex.value;
-    this.customer.customerCountry = this.CustomerCountry.value;
-    this.customer.customerState = this.CustomerState.value;
-    this.customer.customerAddress = this.CustomerAddress.value;
-    this.customerservice.updateCustomer(this.customer.customerId, this.customer).subscribe(
-      data => {
-        this.isupdated = true;
-        // tslint:disable-next-line:no-shadowed-variable
-        this.customerservice.getCustomerList().subscribe(data => {
-          this.customers = data;
-        });
-      },
-      error => console.log(error));
-  }
+
     changeisUpdate() {
     this.isupdated = false;
   }
   adRecord(id: number) {
     this.router.navigate(['/add-record']);
+  }
+  customerDetails(id: number) {
+    this.router.navigate(['details', id]);
+  }
+  updateCustomer(id: number ) {
+    this.router.navigate(['update-customer', id]);
   }
 }

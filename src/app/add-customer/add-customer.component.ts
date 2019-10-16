@@ -33,7 +33,7 @@ export class AddCustomerComponent implements OnInit {
     return this.customerSaveForm.get('customerAddress');
   }
 
-  customer: Customer = new Customer();
+  customer: Customer;
   submitted = false;
 
   customerSaveForm = new FormGroup({

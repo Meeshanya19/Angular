@@ -18,7 +18,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let customer of customers ">
+    <tr>
       <td>{{customer.customerFirstName}}</td>
       <td>{{customer.customerLastName}}</td>
       <td>{{customer.customerDateOfBirth}}</td>
@@ -26,29 +26,29 @@
       <td>{{customer.customerCountry}}</td>
       <td>{{customer.customerState}}</td>
       <td>{{customer.customerAddress}}</td>
-      <td><button (click)="deleteCustomer(customer.customerId)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>
-        <button (click)="getSomeCustomer(customer.customerId)" class='btn btn-info'
-                data-toggle="modal" data-target="#myModal">Update</button>
-        <button (click)="adRecord()" class='btn btn-info'>Details</button>
+      <td><button (click)="addRecord()" class='btn btn-primary'>
+        <i class="fa fa-futboll-0">Add Record</i></button>
+
       </td>
     </tr>
     </tbody><br>
   </table>
-<h3>Add record</h3>
+</div>
+
+
 <div class="row">
   <div class="col-sm-4"></div>
   <div class="col-sm-4" >
     <div [hidden]="submitted" style="width: 400px;">
       <form [formGroup]="patientRecordSaveForm"  (ngSubmit)="addRecord()">
         <div class="form-group">
-          <label >Date of add</label>
-          <input  type="date" class="form-control"   formControlName="createDate" data-toggle="tooltip"
-                  data-placement="right" title="Select date" >
-        </div>
-        <div class="form-group">
-          <label > Record</label>
-           <input type="text" class="form-control"  formControlName="patientRecord" data-toggle="tooltip"
-                   data-placement="right" title="Enter some text" >
+          <label>Date of add</label>
+          <input type="date" class="form-control" formControlName="createDate" placeholder="dd/mm/yyyy" data-toggle="tooltip"
+                 data-placement="right" title="Select date">
+
+          <label> Record</label>
+          <input type="text" class="form-control" formControlName="patientRecord" data-toggle="tooltip"
+                 data-placement="right" title="Enter some text">
         </div>
 
 
@@ -70,4 +70,61 @@
 </div>
 
 
+ <!-- <div class="modal-dialog">
+    <div class="modal-content">
+      <form [formGroup]="patientRecordSaveForm"  (ngSubmit)="addRecord()">
+        &lt;!&ndash; Modal Header &ndash;&gt;
+        <h4 class="modal-title" style="text-align: center">Add Patient record</h4>
 
+        &lt;!&ndash; Modal body &ndash;&gt;
+        <div class="modal-body" >
+          <div [hidden]="isupdated">
+
+            <input type="hidden" class="form-control"  formControlName="customerId" [(ngModel)]="record.id">
+            <div class="form-group">
+              <label>Patient Name</label>
+              <input type="text" class="form-control"  formControlName="createDate" [(ngModel)]="record.createDate"  >
+            </div>
+            <div class="form-group">
+              <label >Patient LastName</label>
+              <input type="text" class="form-control"  formControlName="patientRecord" [(ngModel)]="record.patientRecord"  >
+            </div>
+              <input type="hidden" class="form-control"  formControlName="customerId" [(ngModel)]="record.customerId"  >
+            </div>
+          </div>
+          <div [hidden]="!isupdated">
+            <h4>Student Detail Updated!</h4>
+          </div>
+
+        &lt;!&ndash; Modal footer &ndash;&gt;
+        <div class="modal-footer" >
+          <button type="submit" class="btn btn-success" [hidden]="isupdated">Update</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="changeisUpdate()">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+-->
+<div>
+<table  class="table table-hover table-sm" datatable [dtOptions]="dtOptions"
+        [dtTrigger]="dtTrigger"  >
+  <thead class="thead-light">
+  <tr>
+    <th>Date</th>
+    <th>Text</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let record of recordList">
+    <td>{{record.createDate}}</td>
+    <td>{{record.patientRecord}}</td>
+    <td><button (click)="deleteCustomer(customer.customerId)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>
+      <button (click)="getSomeCustomer(customer.customerId)" class='btn btn-info'
+              data-toggle="modal" data-target="#myModal">Update</button>
+      <button (click)="adRecord()" class='btn btn-info'>Details</button>
+    </td>
+  </tr>
+  </tbody><br>
+</table>
+</div>

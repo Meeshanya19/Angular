@@ -8,6 +8,7 @@ import {DataTablesModule} from 'angular-datatables';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { CustomerRecordComponent } from './customer-record/customer-record.component';
+import { UpdateCustomerComponent } from './update-customer/update-customer.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CustomerRecordComponent } from './customer-record/customer-record.compo
     CustomerListComponent,
     AddCustomerComponent,
     CustomerRecordComponent,
+    UpdateCustomerComponent,
   ],
   imports: [
     BrowserModule,

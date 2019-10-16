@@ -11,11 +11,11 @@ export class PatientRecordService {
   constructor(private http: HttpClient) { }
 
   getRecordList(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}` + 'get-record-list');
+    return this.http.get(`${this.baseUrl}/get-record-list/${id}`);
   }
 
-  createRecord(record: object): Observable<object> {
-    return this.http.post(`${this.baseUrl}` + 'create-record', record);
+  createRecord(record: object, id: number): Observable<object> {
+    return this.http.post(`${this.baseUrl}/create-record/${id}`, record);
   }
 
   deleteRecord(id: number): Observable<any> {

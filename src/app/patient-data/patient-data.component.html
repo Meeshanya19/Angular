@@ -1,0 +1,103 @@
+<p>
+  patient-data works!
+</p>
+
+<div class="panel-body">
+  <table  class="table table-hover table-sm"   >
+    <thead class="thead-light">
+    <tr>
+      <th>Patient name</th>
+      <th>Patient last name</th>
+      <th>Patient Date of birth</th>
+      <th>Patient sex</th>
+      <th>Patient country</th>
+      <th>Patient state</th>
+      <th>Patient address</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{patient.patientFirstName}}</td>
+      <td>{{patient.patientLastName}}</td>
+      <td>{{patient.patientDateOfBirth}}</td>
+      <td>{{patient.patientSex}}</td>
+      <td>{{patient.patientCountry}}</td>
+      <td>{{patient.patientState}}</td>
+      <td>{{patient.patientAddress}}</td>
+      <td><button (click)="this.addFormToPage = false;" class='btn btn-primary'>
+        <i class="fa fa-futboll-0">Add Record</i></button>
+
+      </td>
+    </tr>
+    </tbody><br>
+  </table>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4" >
+    <div [hidden]="addFormToPage"  style="width: 400px;">
+      <form [formGroup]="patientDataSaveForm"  (ngSubmit)="addPatientData()">
+        <div class="form-group">
+          <label>Date of add</label>
+          <input type="date" class="form-control" formControlName="createDate" placeholder="dd/mm/yyyy" data-toggle="tooltip"
+                 data-placement="right" title="Select date">
+        </div>
+        <div class="form-group">
+          <label> Title</label>
+          <input type="text" class="form-control" formControlName="patientDataTitle" data-toggle="tooltip"
+                 data-placement="right" title="Enter some text">
+        </div>
+
+        <div class="form-group">
+          <label> Record</label>
+          <textarea type="text" class="form-control" formControlName="patientDataText" data-toggle="tooltip"
+                    data-placement="right" title="Enter some text"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+        <button (click)="this.reset()" class="btn btn-success">Cancel</button>
+
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div [hidden]="!submitted">
+      <h4>Patient Data Added SuccessFully!</h4>
+      <button (click)="reset()" class='btn btn-primary'>Ok</button>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+
+<div>
+<table  class="table table-hover table-sm" datatable [dtOptions]="dtOptions"
+        [dtTrigger]="dtTrigger"  >
+  <thead class="thead-light">
+  <tr>
+    <th>Date</th>
+    <th>Title</th>
+    <th>Text</th>
+
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let patientData of patientDataList">
+    <td>{{patientData.createDate}}</td>
+    <td>{{patientData.patientDataText}}</td>
+    <td>{{patientData.titleOfData}}</td>
+    <td><button (click)="deletePatient(patient.patientId)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>
+      <button (click)="getSomePatient(patient.patientId)" class='btn btn-info'
+              data-toggle="modal" data-target="#myModal">Update</button>
+      <button (click)="adRecord()" class='btn btn-info'>Details</button>
+    </td>
+  </tr>
+  </tbody><br>
+</table>
+</div>

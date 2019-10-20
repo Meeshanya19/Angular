@@ -5,18 +5,18 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {DataTablesModule} from 'angular-datatables';
-import { CustomerListComponent } from './customer-list/customer-list.component';
-import { AddCustomerComponent } from './add-customer/add-customer.component';
-import { CustomerRecordComponent } from './customer-record/customer-record.component';
-import { UpdateCustomerComponent } from './update-customer/update-customer.component';
+import { PatientListComponent } from './patient-list/patient-list.component';
+import { AddPatientComponent } from './add-patient/add-patient.component';
+import { PatientDataComponent } from './patient-data/patient-data.component';
+import { UpdatePatientComponent } from './update-patient/update-patient.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomerListComponent,
-    AddCustomerComponent,
-    CustomerRecordComponent,
-    UpdateCustomerComponent,
+    PatientListComponent,
+    AddPatientComponent,
+    PatientDataComponent,
+    UpdatePatientComponent,
   ],
   imports: [
     BrowserModule,

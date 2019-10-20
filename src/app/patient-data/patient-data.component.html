@@ -92,9 +92,10 @@
     <td>{{patientData.createDate}}</td>
     <td>{{patientData.patientDataText}}</td>
     <td>{{patientData.titleOfData}}</td>
-    <td><button (click)="deletePatient(patient.patientId)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>
-      <button (click)="getSomePatient(patient.patientId)" class='btn btn-info'
-              data-toggle="modal" data-target="#myModal">Update</button>
+    <td><button (click)="deletePatientData(patientData.patientDataId)" class='btn btn-primary'>
+      <i class="fa fa-futboll-0">Delete data</i></button>
+      <button (click)="editPatientData(patientData.patientDataId)" class='btn btn-info'
+              data-toggle="modal" data-target="#myModal">Edit</button>
       <button (click)="adRecord()" class='btn btn-info'>Details</button>
     </td>
   </tr>

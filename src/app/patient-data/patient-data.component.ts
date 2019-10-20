@@ -7,6 +7,7 @@ import {Observable, Subject} from 'rxjs';
 import {Patient} from '../patient';
 import {Router, ActivatedRoute} from '@angular/router';
 
+
 @Component({
   selector: 'app-patient-data',
   templateUrl: './patient-data.component.html',
@@ -33,7 +34,7 @@ export class PatientDataComponent implements OnInit {
   }
 
   patientData: PatientData;
-  patientDataList: Observable<Patient[]>;
+  patientDataList: Array<PatientData>;
   patient: Patient;
   submitted = false;
   addFormToPage = true;
@@ -112,4 +113,12 @@ tableOptions() {
     this.router.navigate(['getPatientData', patientId]);
   }
 
+  deletePatientData(patientDataId: number) {
+    this.patientDataService.deletePatientData(patientDataId);
+    this.reset();
+  }
+
+  editPatientData(patientDataId: number ) {
+    this.router.navigate(['edit-patient-data', patientDataId]);
+  }
 }

@@ -11,8 +11,8 @@ export class PatientDataService {
 
   constructor(private http: HttpClient) { }
 
-  getPatientData(patientId: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/getPatientData/${patientId}`);
+  getPatientData(patientDataId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/getPatientData/${patientDataId}`);
   }
 
   createPatientData(patientData: object, id: number): Observable<object> {
@@ -24,7 +24,7 @@ export class PatientDataService {
   }
 
   // tslint:disable-next-line:ban-types
-  getRecord(patientDataId: number): Observable<Object> {
+  getRecord(patientDataId: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/patient-data-by-id/${patientDataId}`);
   }
   // tslint:disable-next-line:ban-types
